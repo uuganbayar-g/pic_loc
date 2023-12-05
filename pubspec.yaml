@@ -41,6 +41,12 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_easyloading: ^3.0.5
   uuid: ^4.2.1
+  image_picker: ^1.0.4
+  path: ^1.8.3
+  location: ^5.0.3
+  sqflite: ^2.3.0
+
+
 
 dev_dependencies:
   flutter_test:

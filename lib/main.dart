@@ -33,11 +33,8 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => Provider_Place(),
-      child: MyApp()),
+      child: const MyApp()),
   );
-}
-
-class Global_provider {
 }
 
 class MyApp extends StatelessWidget {
@@ -45,6 +42,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<Provider_Place>(context, listen: false).loadPlaces();
     return MaterialApp(
       title: 'Great Places',
       navigatorKey: GlobalKeys.navigatorKey,

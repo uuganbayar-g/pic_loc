@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:file_access/models/place.dart';
+import 'package:file_access/widgets/image_input.dart';
+import 'package:file_access/widgets/location_input.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/user_places.dart';
@@ -12,14 +16,15 @@ class AddPlaceScreen extends StatefulWidget {
 
 class _nameState extends State<AddPlaceScreen> {
     final _titleController = TextEditingController();
+    File? image;
+    PlaceLocation? location;
     void _savePlace() {
     final enteredTitle = _titleController.text;
 
     if (enteredTitle.isEmpty) {
       return;
     }
-
-    Provider.of<Provider_Place>(context, listen: false).addPlace(Place( title: enteredTitle));
+    Provider.of<Provider_Place>(context, listen: false).addPlace(new Place( title: enteredTitle, image: image!, location: location!));
     Navigator.of(context).pop();
   }
 
@@ -42,7 +47,10 @@ class _nameState extends State<AddPlaceScreen> {
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),
+            // image Input 
+            ImageInput(OnTakeImg: (imagex) {image = imagex; },),
             const SizedBox(height: 16),
+            LocatioInput(OnPlaceLoc: (locationx){location = locationx;},),
             ElevatedButton.icon(
               onPressed: _savePlace,
               icon: const Icon(Icons.add),

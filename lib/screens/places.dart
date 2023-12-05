@@ -6,9 +6,11 @@ import '../providers/user_places.dart';
 
 class PlacesScreen extends StatelessWidget {
   const PlacesScreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
+
     return Consumer<Provider_Place>(
               builder: (context, provider, child) {
                 return Scaffold(

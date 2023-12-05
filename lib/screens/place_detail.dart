@@ -14,7 +14,7 @@ class PlaceDetailScreen extends StatelessWidget {
         title: Text(place.title),
       ),
       body: Center(
-        child: ElevatedButton(onPressed:()=>{EasyLoading.showToast('Toast')} , child: Text(
+        child: ElevatedButton(onPressed:()=>{EasyLoading.showToast(place.title)} , child: Text(
           place.title,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: Theme.of(context).colorScheme.onBackground,
