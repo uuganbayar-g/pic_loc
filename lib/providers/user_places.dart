@@ -25,6 +25,7 @@ class Provider_Place extends ChangeNotifier{
  }
 
   void loadPlaces() async{
+    
    final db = await _getDatabase();
    final data = await db.query('places');
    final places = data.map((row) => Place(
